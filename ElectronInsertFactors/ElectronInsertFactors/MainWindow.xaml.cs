@@ -26,6 +26,7 @@ namespace ElectronInsertFactors
         private List<string> _machine_names_list = new List<string> { "Select a machine", "Del Mar", "La Jolla"};
         private string averageIFMeasurement;
         private string averageOFMeasurement;
+        private string insertFactor;
         private List<string> _energy_list = new List<string> { "Select an energy", "6e", "9e", "12e", "16e", "20e"};
         private List<string> ssdList = new List<string> { "Select an SSD", "105", "110"};
         private List<string> chamberList = new List<string> { "Select a chamber", "Markus Chamber (23343)", "Advanced Markus (34045)" };
@@ -76,6 +77,30 @@ namespace ElectronInsertFactors
             {
                 averageIFMeasurement = value;
                 OnPropertyChanged("AverageIFMeasurement");
+            }
+        }
+        public string InsertFactor
+        {
+            get
+            {
+                return insertFactor;
+            }
+            set
+            {
+                insertFactor = value;
+                OnPropertyChanged("InsertFactor");
+            }
+        }
+        public string AverageOFMeasurement
+        {
+            get
+            {
+                return averageOFMeasurement;
+            }
+            set
+            {
+                averageOFMeasurement = value;
+                OnPropertyChanged("AverageOFMeasurement");
             }
         }
         public List<string> ChamberList
@@ -148,7 +173,13 @@ namespace ElectronInsertFactors
             IFAverage_binding.Source = this;
             IFMeasurementAvg_Label.SetBinding(Label.ContentProperty, IFAverage_binding);
 
+            Binding OFAverage_binding = new Binding("AverageOFMeasurement");
+            OFAverage_binding.Source = this;
+            OFMeasurementAvg_Label.SetBinding(Label.ContentProperty, OFAverage_binding);
 
+            Binding InsertFactor_binding = new Binding("InsertFactor");
+            InsertFactor_binding.Source = this;
+            InsertFactorLabel.SetBinding(Label.ContentProperty, InsertFactor_binding);
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -192,6 +223,7 @@ namespace ElectronInsertFactors
                 double measure_3 = Convert.ToDouble(IFMeasurement_3.Text);
                 double avg_measure = (measure_1 + measure_2 + measure_3) / 3;
                 AverageIFMeasurement = $"Avg: {avg_measure}";
+                check_average();
             }
         }
         private void OFMeasurement_TextChanged(object sender, TextChangedEventArgs e)
@@ -203,10 +235,26 @@ namespace ElectronInsertFactors
                 double measure_2 = Convert.ToDouble(OFMeasurement_2.Text);
                 double measure_3 = Convert.ToDouble(OFMeasurement_3.Text);
                 double avg_measure = (measure_1 + measure_2 + measure_3) / 3;
-                AverageIFMeasurement = $"Avg: {avg_measure}";
+                AverageOFMeasurement = $"Avg: {avg_measure}";
+                check_average();
             }
         }
 
-
+        private void check_average()
+        {
+            if (IsDouble(OFMeasurement_1.Text) && IsDouble(OFMeasurement_2.Text) && IsDouble(OFMeasurement_3.Text) 
+                && IsDouble(IFMeasurement_1.Text) && IsDouble(IFMeasurement_2.Text) && IsDouble(IFMeasurement_3.Text))
+            {
+                double if_measure_1 = Convert.ToDouble(IFMeasurement_1.Text);
+                double if_measure_2 = Convert.ToDouble(IFMeasurement_2.Text);
+                double if_measure_3 = Convert.ToDouble(IFMeasurement_3.Text);
+                double if_avg_measure = (if_measure_1 + if_measure_2 + if_measure_3) / 3;
+                double of_measure_1 = Convert.ToDouble(OFMeasurement_1.Text);
+                double of_measure_2 = Convert.ToDouble(OFMeasurement_2.Text);
+                double of_measure_3 = Convert.ToDouble(OFMeasurement_3.Text);
+                double of_avg_measure = (of_measure_1 + of_measure_2 + of_measure_3) / 3;
+                InsertFactor = $"Insert Factor: {if_avg_measure / of_avg_measure}";
+            }
+        }
     }
 }

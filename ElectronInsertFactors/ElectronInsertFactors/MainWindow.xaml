@@ -7,21 +7,27 @@
         xmlns:Collections="clr-namespace:System.Collections;assembly=System.Runtime" x:Class="ElectronInsertFactors.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid HorizontalAlignment="Right" Width="800">
         <ComboBox Name="EnergyComboBox" HorizontalAlignment="Left" Height="29" Margin="52,61,0,0" VerticalAlignment="Top" Width="195" SelectedIndex="0" SelectionChanged="EnergyComboBox_SelectionChanged"/>
         <Label Name="Dmax_Label" HorizontalAlignment="Left" Height="35" Margin="52,107,0,0" VerticalAlignment="Top" Width="84"/>
         <ComboBox Name="MachineComboBox" HorizontalAlignment="Left" Height="29" Margin="265,61,0,0" VerticalAlignment="Top" Width="154"/>
         <ComboBox Name="SSDComboBox" HorizontalAlignment="Left" Height="29" Margin="438,61,0,0" VerticalAlignment="Top" Width="148"/>
         <ComboBox Name="ChamberComboBox" HorizontalAlignment="Left" Height="29" Margin="601,61,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBox x:Name="IFMeasurement_1" HorizontalAlignment="Left" Height="28" Text="Measurement_3" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="210,273,0,0" TextChanged="IFMeasurement_TextChanged"/>
-        <TextBox x:Name="IFMeasurement_2" HorizontalAlignment="Left" Height="28" Text="Measurement_2" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="209,240,0,0" TextChanged="IFMeasurement_TextChanged"/>
-        <TextBox x:Name="IFMeasurement_3" HorizontalAlignment="Left" Height="28" Text="Measurement_1" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Margin="209,207,0,0" TextChanged="IFMeasurement_TextChanged"/>
-        <Label Name="IFMeasurementAvg_Label" Content="" HorizontalAlignment="Left" Height="38" Margin="218,303,0,0" VerticalAlignment="Top" Width="116"/>
-        <TextBox x:Name="OFMeasurement_1" HorizontalAlignment="Left" Height="28" Text="Measurement_3" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Margin="376,273,0,0" TextChanged="OFMeasurement_TextChanged"/>
-        <TextBox x:Name="OFMeasurement_2" HorizontalAlignment="Left" Height="28" Text="Measurement_2" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="375,240,0,0" TextChanged="OFMeasurement_TextChanged"/>
-        <TextBox x:Name="OFMeasurement_3" HorizontalAlignment="Left" Height="28" Text="Measurement_1" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="376,207,0,0" TextChanged="OFMeasurement_TextChanged"/>
-        <Label Name="OFMeasurement_Avg" Content="" HorizontalAlignment="Left" Height="38" Margin="384,302,0,0" VerticalAlignment="Top" Width="116"/>
+
         <Label Content="Insert Measurement" HorizontalAlignment="Left" Height="27" Margin="209,172,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="133"/>
+        <TextBox x:Name="IFMeasurement_1" HorizontalAlignment="Left" Height="28" Text="" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="210,273,0,0" TextChanged="IFMeasurement_TextChanged"/>
+        <TextBox x:Name="IFMeasurement_2" HorizontalAlignment="Left" Height="28" Text="" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="209,240,0,0" TextChanged="IFMeasurement_TextChanged"/>
+        <TextBox x:Name="IFMeasurement_3" HorizontalAlignment="Left" Height="28" Text="" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Margin="209,207,0,0" TextChanged="IFMeasurement_TextChanged"/>
+
         <Label Content="Open Measurement" HorizontalAlignment="Left" Height="27" Margin="375,172,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="133"/>
+        <TextBox x:Name="OFMeasurement_1" HorizontalAlignment="Left" Height="28" Text="" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Margin="376,273,0,0" TextChanged="OFMeasurement_TextChanged"/>
+        <TextBox x:Name="OFMeasurement_2" HorizontalAlignment="Left" Height="28" Text="" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="375,240,0,0" TextChanged="OFMeasurement_TextChanged"/>
+        <TextBox x:Name="OFMeasurement_3" HorizontalAlignment="Left" Height="28" Text="" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="376,207,0,0" TextChanged="OFMeasurement_TextChanged"/>
+
+        <Label Name="IFMeasurementAvg_Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="" HorizontalAlignment="Left" Height="38" Margin="218,303,0,0" VerticalAlignment="Top" Width="116"/>
+        <Label Name="OFMeasurementAvg_Label" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="384,302,0,0" VerticalAlignment="Top" Width="116"/>
+
+
+        <Label Name="InsertFactorLabel" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="50" Margin="210,346,0,0" VerticalAlignment="Top" Width="299"/>
     </Grid>
 </Window>
