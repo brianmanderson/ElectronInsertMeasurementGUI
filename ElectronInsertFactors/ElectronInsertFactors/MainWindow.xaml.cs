@@ -24,6 +24,8 @@ namespace ElectronInsertFactors
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private List<string> _machine_names_list = new List<string> { "Select a machine", "Del Mar", "La Jolla"};
+        private string averageIFMeasurement;
+        private string averageOFMeasurement;
         private List<string> _energy_list = new List<string> { "Select an energy", "6e", "9e", "12e", "16e", "20e"};
         private List<string> ssdList = new List<string> { "Select an SSD", "105", "110"};
         private List<string> chamberList = new List<string> { "Select a chamber", "Markus Chamber (23343)", "Advanced Markus (34045)" };
@@ -64,6 +66,18 @@ namespace ElectronInsertFactors
                 OnPropertyChanged("SSDList");
             }
         }
+        public string AverageIFMeasurement
+        {
+            get
+            {
+                return averageIFMeasurement;
+            }
+            set
+            {
+                averageIFMeasurement = value;
+                OnPropertyChanged("AverageIFMeasurement");
+            }
+        }
         public List<string> ChamberList
         {
             get
@@ -87,6 +101,21 @@ namespace ElectronInsertFactors
                 _dmax = value;
                 OnPropertyChanged("Dmax");
             }
+        }
+        public bool IsDouble(string text)
+        {
+            Double num = 0;
+            bool isDouble = false;
+
+            // Check for empty string.
+            if (string.IsNullOrEmpty(text))
+            {
+                return false;
+            }
+
+            isDouble = Double.TryParse(text, out num);
+
+            return isDouble;
         }
         public MainWindow()
         {
@@ -114,6 +143,11 @@ namespace ElectronInsertFactors
             Binding dmax_binding = new Binding("Dmax");
             dmax_binding.Source = this;
             Dmax_Label.SetBinding(Label.ContentProperty, dmax_binding);
+
+            Binding IFAverage_binding = new Binding("AverageIFMeasurement");
+            IFAverage_binding.Source = this;
+            IFMeasurementAvg_Label.SetBinding(Label.ContentProperty, IFAverage_binding);
+
 
         }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -147,5 +181,32 @@ namespace ElectronInsertFactors
                 Dmax = "Dmax: 3 cm";
             }
         }
+
+        private void IFMeasurement_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (IsDouble(IFMeasurement_1.Text) && IsDouble(IFMeasurement_2.Text) && IsDouble(IFMeasurement_3.Text))
+            {
+                double measure_1 = Convert.ToDouble(IFMeasurement_1.Text);
+                double measure_2 = Convert.ToDouble(IFMeasurement_2.Text);
+                double measure_3 = Convert.ToDouble(IFMeasurement_3.Text);
+                double avg_measure = (measure_1 + measure_2 + measure_3) / 3;
+                AverageIFMeasurement = $"Avg: {avg_measure}";
+            }
+        }
+        private void OFMeasurement_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (IsDouble(OFMeasurement_1.Text) && IsDouble(OFMeasurement_2.Text) && IsDouble(OFMeasurement_3.Text))
+            {
+                double measure_1 = Convert.ToDouble(OFMeasurement_1.Text);
+                double measure_2 = Convert.ToDouble(OFMeasurement_2.Text);
+                double measure_3 = Convert.ToDouble(OFMeasurement_3.Text);
+                double avg_measure = (measure_1 + measure_2 + measure_3) / 3;
+                AverageIFMeasurement = $"Avg: {avg_measure}";
+            }
+        }
+
+
     }
 }

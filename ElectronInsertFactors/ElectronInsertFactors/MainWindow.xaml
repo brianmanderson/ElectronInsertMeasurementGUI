@@ -13,6 +13,15 @@
         <ComboBox Name="MachineComboBox" HorizontalAlignment="Left" Height="29" Margin="265,61,0,0" VerticalAlignment="Top" Width="154"/>
         <ComboBox Name="SSDComboBox" HorizontalAlignment="Left" Height="29" Margin="438,61,0,0" VerticalAlignment="Top" Width="148"/>
         <ComboBox Name="ChamberComboBox" HorizontalAlignment="Left" Height="29" Margin="601,61,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="265,30,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <TextBox x:Name="IFMeasurement_1" HorizontalAlignment="Left" Height="28" Text="Measurement_3" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="210,273,0,0" TextChanged="IFMeasurement_TextChanged"/>
+        <TextBox x:Name="IFMeasurement_2" HorizontalAlignment="Left" Height="28" Text="Measurement_2" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="209,240,0,0" TextChanged="IFMeasurement_TextChanged"/>
+        <TextBox x:Name="IFMeasurement_3" HorizontalAlignment="Left" Height="28" Text="Measurement_1" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Margin="209,207,0,0" TextChanged="IFMeasurement_TextChanged"/>
+        <Label Name="IFMeasurementAvg_Label" Content="" HorizontalAlignment="Left" Height="38" Margin="218,303,0,0" VerticalAlignment="Top" Width="116"/>
+        <TextBox x:Name="OFMeasurement_1" HorizontalAlignment="Left" Height="28" Text="Measurement_3" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Margin="376,273,0,0" TextChanged="OFMeasurement_TextChanged"/>
+        <TextBox x:Name="OFMeasurement_2" HorizontalAlignment="Left" Height="28" Text="Measurement_2" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="375,240,0,0" TextChanged="OFMeasurement_TextChanged"/>
+        <TextBox x:Name="OFMeasurement_3" HorizontalAlignment="Left" Height="28" Text="Measurement_1" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Margin="376,207,0,0" TextChanged="OFMeasurement_TextChanged"/>
+        <Label Name="OFMeasurement_Avg" Content="" HorizontalAlignment="Left" Height="38" Margin="384,302,0,0" VerticalAlignment="Top" Width="116"/>
+        <Label Content="Insert Measurement" HorizontalAlignment="Left" Height="27" Margin="209,172,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="133"/>
+        <Label Content="Open Measurement" HorizontalAlignment="Left" Height="27" Margin="375,172,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="133"/>
     </Grid>
 </Window>
