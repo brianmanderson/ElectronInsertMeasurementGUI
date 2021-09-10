@@ -8,9 +8,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ComboBox Name="EnergyComboBox" HorizontalAlignment="Left" Height="29" Margin="52,61,0,0" VerticalAlignment="Top" Width="195" SelectedIndex="0"/>
-        <Label Content="Dmax" HorizontalAlignment="Left" Height="35" Margin="53,102,0,0" VerticalAlignment="Top" Width="97" BorderThickness="5,5,5,5"/>
-        <Label Name="Dmax_Label" HorizontalAlignment="Left" Height="35" Margin="163,102,0,0" VerticalAlignment="Top" Width="84"/>
+        <ComboBox Name="EnergyComboBox" HorizontalAlignment="Left" Height="29" Margin="52,61,0,0" VerticalAlignment="Top" Width="195" SelectedIndex="0" SelectionChanged="EnergyComboBox_SelectionChanged"/>
+        <Label Name="Dmax_Label" HorizontalAlignment="Left" Height="35" Margin="52,107,0,0" VerticalAlignment="Top" Width="84"/>
         <ComboBox Name="MachineComboBox" HorizontalAlignment="Left" Height="29" Margin="265,61,0,0" VerticalAlignment="Top" Width="154"/>
         <ComboBox Name="SSDComboBox" HorizontalAlignment="Left" Height="29" Margin="438,61,0,0" VerticalAlignment="Top" Width="148"/>
         <ComboBox Name="ChamberComboBox" HorizontalAlignment="Left" Height="29" Margin="601,61,0,0" VerticalAlignment="Top" Width="150"/>

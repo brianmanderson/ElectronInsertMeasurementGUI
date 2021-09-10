@@ -27,6 +27,7 @@ namespace ElectronInsertFactors
         private List<string> _energy_list = new List<string> { "Select an energy", "6e", "9e", "12e", "16e", "20e"};
         private List<string> ssdList = new List<string> { "Select an SSD", "105", "110"};
         private List<string> chamberList = new List<string> { "Select a chamber", "Markus Chamber (23343)", "Advanced Markus (34045)" };
+        private string _dmax;
         public List<string> MachineNamesList
         {
             get
@@ -75,6 +76,18 @@ namespace ElectronInsertFactors
                 OnPropertyChanged("ChamberList");
             }
         }
+        public string Dmax
+        {
+            get
+            {
+                return _dmax;
+            }
+            set
+            {
+                _dmax = value;
+                OnPropertyChanged("Dmax");
+            }
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -98,6 +111,10 @@ namespace ElectronInsertFactors
             ChamberComboBox.SetBinding(ComboBox.ItemsSourceProperty, chamber_binding);
             ChamberComboBox.SelectedIndex = 0;
 
+            Binding dmax_binding = new Binding("Dmax");
+            dmax_binding.Source = this;
+            Dmax_Label.SetBinding(Label.ContentProperty, dmax_binding);
+
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -110,5 +127,25 @@ namespace ElectronInsertFactors
             }
         }
 
+        private void EnergyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string energy = EnergyList[EnergyComboBox.SelectedIndex];
+            if (energy.Contains("Select"))
+            {
+                Dmax = "";
+            }
+            else if (energy == "6e")
+            {
+                Dmax = "Dmax: 1.5 cm";
+            }
+            else if (energy == "9e")
+            {
+                Dmax = "Dmax: 2 cm";
+            }
+            else
+            {
+                Dmax = "Dmax: 3 cm";
+            }
+        }
     }
 }
